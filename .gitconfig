@@ -25,6 +25,10 @@
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
+# assumes git.git clone at ~/src/git
+	diff-highlight = "!f() { git diff \"$@\" | ~/src/git/contrib/diff-highlight/diff-highlight; }; f"
+	happify = !sh -c \"ln -s ~/.git/hooks/post-{commit,update} .git/hooks\"
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
@@ -75,4 +79,7 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
+
+[push]
+	default = matching
 
