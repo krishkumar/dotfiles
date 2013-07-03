@@ -95,8 +95,10 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
 
-" Set theme to Solarized 
-set background=light
-"set background=dark
-colorscheme solarized
+" Set theme to Molokai
+"set background=light
+set background=dark
+colorscheme molokai
+
+execute pathogen#infect()
 
