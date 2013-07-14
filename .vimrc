@@ -102,3 +102,6 @@ colorscheme molokai
 
 execute pathogen#infect()
 
+" Adjusting value for vim-airline"
+set ttimeoutlen=50
+
