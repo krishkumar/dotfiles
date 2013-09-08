@@ -42,7 +42,7 @@ set cursorline
 set tabstop=2
 " Not Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+"set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -104,4 +104,7 @@ execute pathogen#infect()
 
 " Adjusting value for vim-airline"
 set ttimeoutlen=50
+
+" Add smiley in command mode
+map smiley i<C-V>U263A<Esc>
 
