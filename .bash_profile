@@ -1,6 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -40,3 +37,19 @@ which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+##
+# Your previous /Users/krishna/.bash_profile file was backed up as /Users/krishna/.bash_profile.macports-saved_2013-06-29_at_23:56:45
+##
+
+# MacPorts Installer addition on 2013-06-29_at_23:56:45: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+# Colorful ls and grep
+export CLICOLOR=1
+export GREP_OPTIONS='--color=auto'
+
+#OS X specific hack. Add completed to current command. 
+bind '"\e[29~":" ; say "Completed""'
+
+
