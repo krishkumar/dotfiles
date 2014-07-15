@@ -29,6 +29,9 @@
 	diff-highlight = "!f() { git diff \"$@\" | ~/src/git/contrib/diff-highlight/diff-highlight; }; f"
 	happify = !sh -c \"ln -s ~/.git/hooks/post-{commit,update} .git/hooks\"
 
+# list files in commit ID
+  files = show --pretty="format:" --name-only
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
