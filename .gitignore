@@ -1,14 +1,11 @@
-# Compiled Python files
-*.pyc
+storage
+compile-cache
+dev
+.npm
+.node-gyp
 
-# Folder view configuration files
-.DS_Store
-Desktop.ini
-
-# Thumbnail cache files
-._*
-Thumbs.db
-
-# Files that might appear on external disks
-.Spotlight-V100
-.Trashes
+# Atom
+packages/
+storage/
+.apm/
+config.cson

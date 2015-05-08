@@ -1,0 +1,59 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed.
+ *
+ * If you are unfamiliar with LESS, you can read more about it here:
+ * http://www.lesscss.org
+ */
+
+.tree-view {
+
+}
+
+// style the background and foreground colors on the atom-text-editor-element
+// itself
+atom-text-editor {
+
+}
+
+// To style other content in the text editor's shadow DOM, use the ::shadow
+// expression
+atom-text-editor::shadow .cursor {
+
+}
+
+// Not liking the wrap guide. to start with.
+.editor {
+  .wrap-guide {
+    visibility: hidden;
+  }
+}
+
+//to look good on the fusebox
+.settings-view { font-size: 20px; }
+.tab-bar .tab .title {
+  font-size: 14px;
+}
+
+atom-text-editor {
+    -webkit-font-smoothing: antialiased;
+}
+
+@sapporo_cycling_road: 'http://media-cache-ec0.pinimg.com/originals/39/8a/ff/398aff8e6dcea2befe58f09480857a4b.jpg';
+@hokkaido_jingu_mae_doori: 'http://media-cache-ec0.pinimg.com/originals/53/0b/1d/530b1dddb1d525b34c36ea37e305b6b0.jpg';
+@monument_road: 'http://i.imgur.com/AM6sUD4.jpg';
+
+@transparent_pink: rgba(255, 192, 203, .5);
+@semitransparent_yellow: rgba(255, 255, 0, .75);
+@editor_background: rgba(0, 0, 0, .6);
+
+.pane {
+  background: url(@monument_road);
+  background-size: cover;
+}
+
+.editor {
+  background: @editor_background;
+}
