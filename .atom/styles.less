@@ -8,6 +8,30 @@
  * http://www.lesscss.org
  */
 
+ @sapporo_cycling_road: 'http://media-cache-ec0.pinimg.com/originals/39/8a/ff/398aff8e6dcea2befe58f09480857a4b.jpg';
+ @hokkaido_jingu_mae_doori: 'http://media-cache-ec0.pinimg.com/originals/53/0b/1d/530b1dddb1d525b34c36ea37e305b6b0.jpg';
+ @monument_road: 'http://i.imgur.com/AM6sUD4.jpg';
+ @toronto_black_white: 'http://i.imgur.com/BuSlG4R.jpg';
+ @moscow: 'http://i.imgur.com/VFFbr9k.jpg';
+ @choose: 'http://i.imgur.com/DlUdPpj.jpg';
+ @chicago: 'https://i.imgur.com/MpArRCN.jpg';
+ @toronto_night_mine: 'https://farm4.staticflickr.com/3681/19209645660_b9b9693293_k_d.jpg';
+ @toronto_mine: 'https://farm4.staticflickr.com/3945/18833622323_0cf91726ac_k_d.jpg';
+
+ @transparent_pink: rgba(255, 192, 203, .5);
+ @semitransparent_yellow: rgba(255, 255, 0, .75);
+ @editor_background: rgba(0, 0, 0, .3);
+
+ .pane {
+   background: url(@toronto_mine);
+   background-size: cover;
+ }
+
+ .editor {
+   background: @editor_background no-repeat right bottom;
+ //  background-attachment: fixed;
+ }
+
 .tree-view {
 
 }
@@ -32,28 +56,11 @@ atom-text-editor::shadow .cursor {
 }
 
 //to look good on the fusebox
-.settings-view { font-size: 20px; }
+.settings-view { font-size: 15px; }
 .tab-bar .tab .title {
   font-size: 14px;
 }
 
 atom-text-editor {
     -webkit-font-smoothing: antialiased;
-}
-
-@sapporo_cycling_road: 'http://media-cache-ec0.pinimg.com/originals/39/8a/ff/398aff8e6dcea2befe58f09480857a4b.jpg';
-@hokkaido_jingu_mae_doori: 'http://media-cache-ec0.pinimg.com/originals/53/0b/1d/530b1dddb1d525b34c36ea37e305b6b0.jpg';
-@monument_road: 'http://i.imgur.com/AM6sUD4.jpg';
-
-@transparent_pink: rgba(255, 192, 203, .5);
-@semitransparent_yellow: rgba(255, 255, 0, .75);
-@editor_background: rgba(0, 0, 0, .6);
-
-.pane {
-  background: url(@monument_road);
-  background-size: cover;
-}
-
-.editor {
-  background: @editor_background;
 }
