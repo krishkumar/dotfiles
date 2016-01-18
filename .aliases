@@ -11,11 +11,13 @@ alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias m="cd ~/master"
+alias u="cd ~/.atom/packages/"
 alias g="git"
 alias h="history"
 alias j="jobs"
 alias v="vim"
 alias s="subl ."
+alias a="atom ."
 alias o="open"
 alias oo="open ."
 
@@ -131,4 +133,12 @@ done
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
+alias git="git-achievements"
+alias readme="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
+
+#audio stuff
+alias mp32caf="afconvert -f caff -d aac -c 1 "
+alias podcast="mplayer -cache 8192"
+
+alias count="wc -l"
 

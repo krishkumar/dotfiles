@@ -1,1 +1,6 @@
-export PATH="~/Dropbox/dev:$PATH"
+export GOROOT=/usr/local/go
+export PATH="$GOROOT/bin;/Users/Krishna/Dropbox/dev:/usr/local/share/npm/bin:$PATH"
+export GOPATH=$HOME/master/go
+
+
+
