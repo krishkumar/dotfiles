@@ -19,13 +19,20 @@ atom.commands.add 'atom-workspace', 'dot-atom:demo', ->
 atom.commands.add 'atom-workspace',
   'Drafts:open-meetings': ->
     meetingList = path.join(process.env.HOME, 'Dropbox/Drafts/Meetings.md')
-    atom.workspace.open(meetingList)
+    if !meetingList?
+      alert 'No Meetings Notes! '
+    else
+      atom.workspace.open(meetingList)
+
 
 # todo
 atom.commands.add 'atom-workspace',
-  'Drafts:open-todo': ->
-    meetingList = path.join(process.env.HOME, 'Dropbox/Drafts/Todo.md')
-    atom.workspace.open(todoList)
+  'Drafts:open-ideas': ->
+    todoList = path.join(process.env.HOME, 'Dropbox/Drafts/Ideas.md')
+    if !todoList?
+      alert 'No Ideas! Enjoy your day... '
+    else
+      atom.workspace.open(todoList)
 
 # https://discuss.atom.io/t/close-all-other-panes/9993/9
 # Close all *other* panes
