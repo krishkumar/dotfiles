@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<root>
+   <item>
+     <name>Double Keypad 0 as Command key</name>
+     <identifier>private.double-keypad-0-as-command-key</identifier>
+     <autogen>__KeyToKey__ KeyCode::KEYPAD_0, KeyCode::COMMAND_L</autogen>
+   </item>
+   <item>
+     <name>Double Keypad . as Tab key</name>
+     <identifier>private.double-keypad-as-tab-key</identifier>
+     <autogen>__KeyToKey__ KeyCode::KEYPAD_DOT, KeyCode::TAB</autogen>
+   </item>
+</root>
