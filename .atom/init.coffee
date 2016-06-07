@@ -17,7 +17,7 @@ atom.commands.add 'atom-workspace', 'dot-atom:demo', ->
 # Drafts commands
 # meetings
 atom.commands.add 'atom-workspace',
-  'Drafts:open-meetings': ->
+  'blackwater park:open-meetings': ->
     meetingList = path.join(process.env.HOME, 'Dropbox/Drafts/Meetings.md')
     if !meetingList?
       alert 'No Meetings Notes! '
@@ -25,9 +25,9 @@ atom.commands.add 'atom-workspace',
       atom.workspace.open(meetingList)
 
 
-# todo
+# ideas
 atom.commands.add 'atom-workspace',
-  'Drafts:open-ideas': ->
+  'blackwater park:open-ideas': ->
     todoList = path.join(process.env.HOME, 'Dropbox/Drafts/Ideas.md')
     if !todoList?
       alert 'No Ideas! Enjoy your day... '
@@ -42,3 +42,30 @@ atom.commands.add 'atom-workspace',
     activePane = atom.workspace.getActivePaneItem()
     for pane in panes
       pane.destroy() if activePane isnt pane
+
+# backlog
+atom.commands.add 'atom-workspace',
+  'blackwater park:open-backlog': ->
+    todoList = path.join(process.env.HOME, 'Dropbox/ops/backlogs/Backlog.md')
+    if !todoList?
+      alert 'No Backlog! Something went wrong... '
+    else
+      atom.workspace.open(todoList)
+
+# release-calendar
+atom.commands.add 'atom-workspace',
+  'blackwater park:open-release-calendar': ->
+    todoList = path.join(process.env.HOME, 'Dropbox/ops/release-calendar.md')
+    if !todoList?
+      alert 'No Release Calendar! Something went wrong... '
+    else
+      atom.workspace.open(todoList)
+
+# master taskpaper
+atom.commands.add 'atom-workspace',
+  'blackwater park:open-master-taskpaper': ->
+    taskList = path.join(process.env.HOME, 'Dropbox/ops/master.taskpaper')
+    if !taskList?
+      alert 'No Master TaskPaper! Something went wrong... '
+    else
+      atom.workspace.open(taskList)

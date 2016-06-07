@@ -23,3 +23,32 @@
 # This file uses CoffeeScript Object Notation (CSON).
 # If you are unfamiliar with CSON, you can read more about it here:
 # https://github.com/bevry/cson#what-is-cson
+
+# Your keymap
+# Xcode style
+'body':
+  'ctrl-tab': 'pane:show-next-item'
+  'alt-cmd-up': 'pane:split-up'
+  'alt-cmd-down': 'pane:split-down'
+  'shift-cmd-L': 'application:open-dev'
+  'shift-cmd-0': 'window:reset-font-size'
+
+'.platform-darwin':
+  'shift-cmd-O': 'fuzzy-finder:toggle-file-finder'
+  'shift-cmd-O': 'fuzzy-finder:toggle-file-finder'
+  'shift-cmd-0': 'image-view:reset-zoom'
+  'cmd-0': 'tree-view:toggle'
+  'shift-cmd-J': 'tree-view:reveal-active-file'
+  'cmd-b': 'build:trigger'
+  # Toggle find panes
+  'cmd-F': 'project-find:toggle'
+  'cmd-f': 'find-and-replace:toggle'
+
+'.markdown-preview':
+  'shift-cmd-0': 'markdown-preview:reset-zoom'
+
+'.platform-darwin .editor':
+  'ctrl-cmd-up': 'switch-header-source:switch'
+  'ctrl-cmd-down': 'switch-header-source:switch'
+
+#  'cmd-shift-o': 'fuzzy-finder:toggle-file-finder' # xcode style
