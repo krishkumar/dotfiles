@@ -1,0 +1,38 @@
+{
+    "name": "Click",
+    "description": "Click Knock Tap...",
+    "definitions": [
+        {
+            "type": "keydown",
+            "events": {
+                "13": ["pr_buzzer.wav"],
+                "default": [
+                    "step_1.wav",
+                    "step_2.wav",
+                    "step_4.wav",
+                    "step_5.wav",
+                    "step_6.wav"
+                ]
+            }
+        },
+        {
+            "type": "keystroke",
+            "events": {
+                "ctrl-a": ["gender_rl.wav"],
+                "ctrl-e": ["gender_lr.wav"],
+                "cmd-n": ["lm_coin.wav"],
+                "cmd-d": ["nsmb_flagpole.wav"],
+                "cmd-enter": ["lm_gold_mouse.wav"],
+                "shift-cmd-A": ["nsmb_pipe.wav"]
+            }
+        },
+        {
+            "type": "command",
+            "events": {
+                "core:save": ["nsmb_power-up.wav"],
+                "command-palette:toggle": ["lm_inventory-open.wav"],
+                "tasks:complete": ["nsmb_flagpole.wav"]
+            }
+        }
+    ]
+}
