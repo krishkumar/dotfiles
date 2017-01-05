@@ -1,7 +1,7 @@
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{path,bash_prompt,exports,aliases,bashrc,functions,extra}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -43,13 +43,15 @@ which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 ##
 
 # MacPorts Installer addition on 2013-06-29_at_23:56:45: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH:/usr/bin
 # Finished adapting your PATH environment variable for use with MacPorts.
 # Colorful ls and grep
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 
 #OS X specific hack. Add completed to current command. 
-bind '"\e[29~":" ; say "Completed""'
+bind '"\e[29~":" ; say "OK""'
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 

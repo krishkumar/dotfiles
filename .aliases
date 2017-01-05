@@ -16,7 +16,6 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 alias v="vim"
-alias s="subl ."
 alias a="atom ."
 alias o="open"
 alias oo="open ."
@@ -141,4 +140,16 @@ alias mp32caf="afconvert -f caff -d aac -c 1 "
 alias podcast="mplayer -cache 8192"
 
 alias count="wc -l"
+
+alias standup="$HOME/standuplog.sh"
+
+#website png generator
+alias webkit2png="webkit2png --ignore-ssl-check"
+
+#generate random alphanumeric
+alias randgen="LC_ALL=C tr -dc "[:alpha:][:alnum:]" < /dev/urandom | head -c 8"
+
+# aws stuff 
+alias ec2running="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text"
+alias ec2status="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==\`Name\`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress]' --output text | column -t"
 
