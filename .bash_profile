@@ -55,3 +55,5 @@ bind '"\e[29~":" ; say "OK""'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+export PATH="/usr/local/sbin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
