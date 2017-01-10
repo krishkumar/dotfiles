@@ -67,16 +67,10 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false,
+    copyOnSelect: true,
 
     // URL to custom bell
-    // bellSoundURL: 'http://example.com/bell.mp3',
-
-    // for advanced config flags please refer to https://hyper.is/#cfg
-    overlay: {
-      hotkeys: ['Ctrl+Space'],
-      position: 'bottom'
-    }
+    bellSoundURL: 'http://www.mariomayhem.com/downloads/sounds/super_mario_bros/smb_pause.wav',
   },
 
   // a list of plugins to fetch and install from npm
@@ -86,10 +80,10 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
+    //"hyper-one-light",
     "hyperterm-atom-dark",
     "hyperline",
     "hyperborder",
-    "hyperterm-overlay",
     "hyperterm-tab-icons",
     "hyperlinks"
   ],

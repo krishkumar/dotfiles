@@ -14,12 +14,12 @@ syntax on
 "--------
 " color scheme
 set background=dark
-color solarized
+color fisa
 
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+"set cursorline cursorcolumn
 
 " search
 set incsearch
@@ -267,3 +267,5 @@ if has("gui_running")
     map <D-0> :tablast<CR>
 endif
 Bundle 'wakatime/vim-wakatime'
+Plugin 'file:///Users/krishna/master/swift/utils/vim-swift'
+Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
