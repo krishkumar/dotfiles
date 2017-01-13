@@ -30,9 +30,12 @@
             "type": "command",
             "events": {
                 "core:save": ["nsmb_power-up.wav"],
-                "command-palette:toggle": ["lm_inventory-open.wav"],
-                "tasks:complete": ["nsmb_flagpole.wav"]
-            }
+                "command-palette:toggle": ["nsmbwiiProjectileDeflected.wav"],
+                "tasks:complete": ["nsmb_flagpole.wav"],
+                "tasks:add": ["nsmb_flagpole.wav"],
+                "fuzzy-finder:toggle-file-finder" : ["nsmbwiiProjectileDeflected.wav"],
+                "find-and-replace:toggle" : ["smb3_jump.wav"],
+                "project-find:toggle" : ["smb3_jump.wav"]            }
         }
     ]
 }
