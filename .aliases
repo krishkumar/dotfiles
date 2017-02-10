@@ -141,7 +141,7 @@ alias podcast="mplayer -cache 8192"
 
 alias count="wc -l"
 
-alias standup="$HOME/standuplog.sh"
+alias standup="$HOME/Dropbox/dev/standuplog.sh"
 
 #website png generator
 alias webkit2png="webkit2png --ignore-ssl-check"

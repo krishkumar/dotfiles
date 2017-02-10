@@ -1,5 +1,5 @@
 export GOROOT=/usr/local/go
-export PATH="$GOROOT/bin;/Users/Krishna/Dropbox/dev:/usr/local/share/npm/bin:$PATH"
+export PATH="$HOME/Dropbox/dev/:$HOME/local/node/bin:$GOROOT/bin:/usr/local/bin:$PATH"
 export GOPATH=$HOME/master/go
 
 
