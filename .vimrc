@@ -9,6 +9,27 @@ filetype plugin indent on
 " enable syntax hightlight and completion
 syntax on
 
+" With a map leader it's possible to do extra key combinations
+let mapleader = " "
+
+" Quicker Escaping 
+inoremap jj <ESC>
+
+" Fast saving
+nmap <leader>w :w<cr>
+
+" Fast quit
+nmap <leader>q :q<cr>
+
+" Set Hidden 
+set hidden
+
+" Close Buffer 
+nmap <leader>x :bd<cr>
+
+" Turn off mouse 
+set mouse = 
+
 "--------
 " Vim UI
 "--------
@@ -56,6 +77,9 @@ set shiftwidth=4    " indent width
 " set textwidth=79
 " set smarttab
 set expandtab       " expand tab to space
+
+" Setup tabs to handle buffers 
+set switchbuf=useopen
 
 autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
@@ -203,7 +227,7 @@ nmap <F6> :NERDTreeToggle<cr>
 nmap <F3> :GundoToggle<cr>
 nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ack 
 nnoremap <leader>v V`]
 
 "------------------
@@ -267,5 +291,4 @@ if has("gui_running")
     map <D-0> :tablast<CR>
 endif
 Bundle 'wakatime/vim-wakatime'
-Plugin 'file:///Users/krishna/master/swift/utils/vim-swift'
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
