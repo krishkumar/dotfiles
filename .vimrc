@@ -30,6 +30,19 @@ nmap <leader>x :bd<cr>
 " Turn off mouse 
 set mouse = 
 
+" Edit .vimrc 
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" Insert Timestamp 
+nnoremap <F7> "=strftime("%Y-%m-%d %H:%M")<CR>P
+inoremap <F7> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+
+"------------------------
+" Blackwater Park Studios
+"------------------------
+"Edit Journal 
+nnoremap <leader>ops <C-w><C-v><C-l>:e $MYOPSDIR/journal.md<cr>
+
 "--------
 " Vim UI
 "--------

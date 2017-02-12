@@ -1,6 +1,8 @@
-export GOROOT=/usr/local/go
-export PATH="$HOME/Dropbox/dev/:$HOME/local/node/bin:$GOROOT/bin:/usr/local/bin:$PATH"
-export GOPATH=$HOME/master/go
+export GOPATH=$HOME/.go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH="$HOME/Dropbox/dev/:$HOME/local/node/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/bin:$PATH"
+### For Blackwater Park Slack
+export SLACK_TOKEN="0u4kmnJMeiQiKoEuws7Cxyrb"
 
 
 

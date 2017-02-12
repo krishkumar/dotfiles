@@ -153,3 +153,9 @@ alias randgen="LC_ALL=C tr -dc "[:alpha:][:alnum:]" < /dev/urandom | head -c 8"
 alias ec2running="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text"
 alias ec2status="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==\`Name\`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress]' --output text | column -t"
 
+# Blackwater Park Studios 
+alias hh="vim $MYOPSDIR/journal.md;ok"
+alias mm="cd $MYMASTERDIR"
+alias dd="cd $MYDEVDIR"
+alias oo="cd $MYOPSDIR"
+

@@ -23,3 +23,10 @@ export GREP_OPTIONS="--color=auto"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Blackwater Park Studios
+export MYOPSDIR="$HOME/Dropbox/ops"
+export MYDEVDIR="$HOME/Dropbox/dev"
+export MYMASTERDIR="$HOME/master"
+
+

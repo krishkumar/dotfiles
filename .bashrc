@@ -7,6 +7,9 @@ command archey -c
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+### Wakatime for Bash 
+source $HOME/master/bash-wakatime/bash-wakatime.sh
+
 function yesterworkday() 
 { 
     if [[ "1" == "$(date +%u)" ]]
@@ -28,3 +31,5 @@ function ec2stop()
 }
 
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
