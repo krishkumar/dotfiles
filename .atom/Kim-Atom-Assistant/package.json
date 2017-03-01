@@ -1,0 +1,40 @@
+{
+    "name": "Click",
+    "description": "Click Knock Tap...",
+    "definitions": [
+        {
+            "type": "keydown",
+            "events": {
+                "13": ["atom-13.wav"],
+                "default": [
+                    "atom-step_1.wav",
+                    "atom-step_2.wav",
+                    "atom-step_4.wav",
+                    "atom-step_5.wav",
+                    "atom-step_6.wav"
+                ]
+            }
+        },
+        {
+            "type": "keystroke",
+            "events": {
+                "cmd-n": ["atom-new-file.mp3"],
+                "cmd-enter": ["atom-new-task.mp3"],
+                "shift-cmd-A": ["atom-tasks-archived.mp3"]
+            }
+        },
+        {
+            "type": "command",
+            "events": {
+                "core:save": ["atom-saving-done.mp3"],
+                "core:undo": ["atom-undo.mp3"],
+                "command-palette:toggle": ["atom-go.mp3"],
+                "tasks:complete": ["atom-task-done.mp3"],
+                "tasks:add": ["atom-new-task.mp3"],
+                "fuzzy-finder:toggle-file-finder" : ["atom-find.mp3"],
+                "find-and-replace:toggle" : ["atom-find.mp3"],
+                "project-find:toggle" : ["atom-find.mp3"]
+              }
+        }
+    ]
+}
