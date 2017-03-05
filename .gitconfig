@@ -1,6 +1,6 @@
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	lg = log --pretty=oneline -n 20 --graph --abbrev-commit
 	# View the current working tree status using the short format
 	s = status -s
 	# Show the diff between the latest commit and the current state
@@ -23,18 +23,26 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# bread and butter log
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# generate release notes since last annotated tag
+	releasenotes = log --pretty=format:"-%s%n%b" --since="$(git show -s --format=%ad `git rev-list --tags --max-count=1`)"
 
 # assumes git.git clone at ~/src/git
 diff-highlight = "!f() { git diff --color | diff-so-fancy \"$@\" | ~/src/git/contrib/diff-highlight/diff-highlight; }; f"
 	happify = !sh -c \"ln -s ~/.git/hooks/post-{commit,update} .git/hooks\"
 
+releases = log --all --graph --decorate --oneline --simplify-by-decoration
 
 # list files in commit ID
 files = show --pretty="format:" --name-only
 
 # list a history of merge branches
-lm = log --grep=Merge 
+lm = log --grep=Merge
+
+# better diff
+showtool = "!f() { git difftool $1^ $1; }; f"
+added = difftool --cached
 
 [apply]
 	# Detect whitespace errors when applying a patch
@@ -68,6 +76,15 @@ lm = log --grep=Merge
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
+[diff]
+	  tool = icdiff
+[difftool]
+	  prompt = false
+[difftool "icdiff"]
+	  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[pager]
+	  difftool = true
+
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
 	remote = origin
@@ -89,4 +106,3 @@ lm = log --grep=Merge
 
 [push]
 	default = matching
-
