@@ -28,7 +28,7 @@
             "events": {
                 "core:save": ["atom-saving-done.mp3"],
                 "core:undo": ["atom-undo.mp3"],
-                "command-palette:toggle": ["atom-go.mp3"],
+                "command-palette:toggle": ["atom-beeboop.mp3"],
                 "tasks:complete": ["atom-task-done.mp3"],
                 "tasks:add": ["atom-new-task.mp3"],
                 "fuzzy-finder:toggle-file-finder" : ["atom-find.mp3"],

@@ -1,0 +1,35 @@
+{
+    "name": "Athena Atom Assistant",
+    "description": "Athena the Announcer from Overwatch is now visiting Atom with the heroes",
+    "definitions": [
+        {
+            "type": "keydown",
+            "events": {
+                "13": ["Sound - Killsound.mp3"],
+                "default": [
+                    "Sound - Selection 1.mp3",
+                    "Sound - Selection 2.mp3",
+                    "Sound - Selection 3.mp3",
+                    "Sound - Selection 4.mp3"
+                ]
+            }
+        },
+        {
+            "type": "command",
+            "events": {
+                "application:new-file": ["Announcer - New Hero.mp3"],
+                "core:save": ["Tracer - Nice Save.mp3"],
+                "core:undo": ["Sound - Robot Hurt 1.mp3"],
+                "command-palette:toggle": ["Announcer - Activate Tactical.mp3"],
+                "fuzzy-finder:toggle-file-finder" : ["Announcer - Searching For Heroes.mp3"],
+                "find-and-replace:toggle" : ["Announcer - Searching For Heroes.mp3"],
+                "project-find:toggle" : ["Announcer - Searching For Heroes.mp3"],
+                "restart-atom:restart" : ["Announcer - The Next Phase.mp3"],
+                "tasks:complete": ["Announcer - You've Captured The Objective.mp3"],
+                "tasks:add": ["Announcer - Capture Objective A.mp3"],
+                "tasks:cancel": ["Announcer - Defeat.mp3"],
+                "tasks:archive": ["Announcer - Epic.mp3"]
+              }
+        }
+    ]
+}
