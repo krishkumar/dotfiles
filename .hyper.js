@@ -1,10 +1,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: 20,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'Menlo',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -12,6 +12,9 @@ module.exports = {
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'BLOCK',
 
+    // Cursor blink support
+    // cursorBlink: true,
+    
     // color of the text
     foregroundColor: '#fff',
 
@@ -70,7 +73,9 @@ module.exports = {
     copyOnSelect: true,
 
     // URL to custom bell
-    bellSoundURL: 'http://www.mariomayhem.com/downloads/sounds/super_mario_bros/smb_pause.wav',
+    //bellSoundURL: 'http://www.mariomayhem.com/downloads/sounds/NSMBWiiSoundEffects/nsmbwiiRedCoin1.wav'
+    //bellSoundURL: 'http://www.mariomayhem.com/downloads/sounds/super_mario_bros/smb_pause.wav',
+    bellSoundURL: 'http://www.mariomayhem.com/downloads/sounds/Super_Mario_Land_sfx/stomp.wav'
   },
 
   // a list of plugins to fetch and install from npm

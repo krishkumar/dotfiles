@@ -5,7 +5,7 @@
         {
             "type": "keydown",
             "events": {
-                "13": ["Sound - Killsound.mp3"],
+                "13": ["Sound - Killsound.mp3","Sound - Headshot 3x.mp3","Sound - Headshot 1x.mp3"],
                 "default": [
                     "Sound - Selection 1.mp3",
                     "Sound - Selection 2.mp3",
@@ -18,17 +18,17 @@
             "type": "command",
             "events": {
                 "application:new-file": ["Announcer - New Hero.mp3"],
-                "core:save": ["Tracer - Nice Save.mp3"],
-                "core:undo": ["Sound - Robot Hurt 1.mp3"],
-                "command-palette:toggle": ["Announcer - Activate Tactical.mp3"],
+                "core:save": ["Hanzo - Ultimate.mp3", "Bastion - Ultimate.mp3", "Soldier 76 - Ultimate.mp3", "D.VA - Ultimate.mp3","Junkrat - Ultimate.mp3","Genji - Ultimate (Activate).mp3"],
+                "core:undo": ["Sound - Robot Hurt 1.mp3","Sound - Robot Hurt 2.mp3","Sound - Robot Hurt 3.mp3","Sound - Robot Hurt 4.mp3","Sound - Robot Hurt 5.mp3","Sound - Robot Hurt 6.mp3"],
+                "command-palette:toggle": ["Announcer - Activate Tactical.mp3","Announcer - Activate The.mp3"],
                 "fuzzy-finder:toggle-file-finder" : ["Announcer - Searching For Heroes.mp3"],
                 "find-and-replace:toggle" : ["Announcer - Searching For Heroes.mp3"],
                 "project-find:toggle" : ["Announcer - Searching For Heroes.mp3"],
                 "restart-atom:restart" : ["Announcer - The Next Phase.mp3"],
-                "tasks:complete": ["Announcer - You've Captured The Objective.mp3"],
-                "tasks:add": ["Announcer - Capture Objective A.mp3"],
-                "tasks:cancel": ["Announcer - Defeat.mp3"],
-                "tasks:archive": ["Announcer - Epic.mp3"]
+                "tasks:complete": ["Announcer - Epic.mp3","Announcer - Legendary.mp3"],
+                "tasks:add": ["D.VA - Attack The Objective.mp3","Junkrat - Attack The Objective.mp3","McCree - Take The Objective 2.mp3","Roadhog - Attack The Objective.mp3","Zenyatta - Our Objective.mp3","Winston - Everyone On The Objective.mp3","Zarya - Get On The Objective.mp3"],
+                "tasks:cancel": ["Winston - Failure.mp3","Winston - That Was A Failed.mp3","Zarya - You Have Failed.mp3"],
+                "tasks:archive": ["Announcer - You've Captured The Objective.mp3"]
               }
         }
     ]
