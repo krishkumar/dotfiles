@@ -35,7 +35,6 @@
 
 '.platform-darwin':
   'shift-cmd-O': 'fuzzy-finder:toggle-file-finder'
-  'shift-cmd-O': 'fuzzy-finder:toggle-file-finder'
   'shift-cmd-0': 'image-view:reset-zoom'
   'cmd-0': 'tree-view:toggle'
   'shift-cmd-J': 'tree-view:reveal-active-file'
@@ -50,5 +49,8 @@
 '.platform-darwin .editor':
   'ctrl-cmd-up': 'switch-header-source:switch'
   'ctrl-cmd-down': 'switch-header-source:switch'
+
+'.platform-darwin, .platform-darwin .command-palette atom-text-editor':
+    'ctrl-shift': 'command-palette:toggle'
 
 #  'cmd-shift-o': 'fuzzy-finder:toggle-file-finder' # xcode style

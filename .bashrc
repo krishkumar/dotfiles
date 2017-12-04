@@ -1,5 +1,5 @@
 ### Show system info
-command archey -c 
+command archey -c
 
 [ -n "$PS1" ]
 # source ~/.bash_profile
@@ -7,13 +7,13 @@ command archey -c
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### Wakatime for Bash 
+### Wakatime for Bash
 source $HOME/master/bash-wakatime/bash-wakatime.sh
 
-function yesterworkday() 
-{ 
+function yesterworkday()
+{
     if [[ "1" == "$(date +%u)" ]]
-    then 
+    then
         echo "last friday"
     else
         echo "yesterday"
@@ -29,7 +29,3 @@ function ec2stop()
 {
     aws ec2 stop-instances --instance-ids "$1"
 }
-
-
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
