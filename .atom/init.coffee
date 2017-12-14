@@ -17,7 +17,7 @@ atom.commands.add 'atom-workspace', 'dot-atom:demo', ->
 # meetings
 atom.commands.add 'atom-workspace',
     'blackwater-park:open-meetings': ->
-        meetingList = path.join(process.env.HOME, 'Dropbox/ops/Meetings.md')
+        meetingList = path.join(process.env.HOME, 'Cozy/ops/Meetings.md')
         if !meetingList?
             alert 'No Meetings Notes! '
         else
@@ -27,7 +27,7 @@ atom.commands.add 'atom-workspace',
 # ideas
 atom.commands.add 'atom-workspace',
     'blackwater-park:open-ideas(iii)': ->
-        todoList = path.join(process.env.HOME, 'Dropbox/ops/Ideas.md')
+        todoList = path.join(process.env.HOME, 'Cozy/ops/Ideas.md')
         if !todoList?
             alert 'No Ideas! Enjoy your day... '
         else
@@ -45,7 +45,7 @@ atom.commands.add 'atom-workspace',
 # backlog
 atom.commands.add 'atom-workspace',
     'blackwater-park:open-backlog(bbb)': ->
-        todoList = path.join(process.env.HOME, 'Dropbox/ops/backlogs/Backlog.md')
+        todoList = path.join(process.env.HOME, 'Cozy/ops/backlogs/Backlog.md')
         if !todoList?
             alert 'No Backlog! Something went wrong... '
         else
@@ -54,7 +54,7 @@ atom.commands.add 'atom-workspace',
 # release-calendar
 atom.commands.add 'atom-workspace',
     'blackwater-park:open-release-calendar(ccc)': ->
-        todoList = path.join(process.env.HOME, 'Dropbox/ops/release-calendar.md')
+        todoList = path.join(process.env.HOME, 'Cozy/ops/release-calendar.md')
         if !todoList?
             alert 'No Release Calendar! Something went wrong... '
         else
@@ -63,7 +63,7 @@ atom.commands.add 'atom-workspace',
 # master taskpaper
 atom.commands.add 'atom-workspace',
     'blackwater-park:open-master-taskpaper(ma)': ->
-        taskList = path.join(process.env.HOME, 'Dropbox/ops/master.taskpaper')
+        taskList = path.join(process.env.HOME, 'Cozy/ops/master.taskpaper')
         if !taskList?
             alert 'No Master TaskPaper! Something went wrong... '
         else
@@ -74,8 +74,8 @@ atom.commands.add 'atom-workspace',
     'blackwater-park:open-monthly-taskpaper(mmm)': ->
         monthNames = [ 'January', 'February','March','April','May','June','July','August','September','October','November','December']
         d = new Date
-        # currentMonth = monthNames[d.getMonth()]
-        taskList = path.join(process.env.HOME, "Dropbox/ops/#{currentMonth}.taskpaper")
+        currentMonth = monthNames[d.getMonth()]
+        taskList = path.join(process.env.HOME, "Cozy/ops/#{currentMonth}.taskpaper")
         if !taskList?
             alert 'No Master TaskPaper! Something went wrong... '
         else
@@ -84,7 +84,7 @@ atom.commands.add 'atom-workspace',
 # open journal
 atom.commands.add 'atom-workspace',
     'blackwater-park:open-journal(jjj)': ->
-        journal = path.join(process.env.HOME, 'Dropbox/ops/journal.txt')
+        journal = path.join(process.env.HOME, 'Cozy/ops/journal.txt')
         if !journal?
             alert 'No journal! Something went wrong... '
         else
