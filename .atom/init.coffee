@@ -62,7 +62,7 @@ atom.commands.add 'atom-workspace',
 
 # master taskpaper
 atom.commands.add 'atom-workspace',
-    'blackwater-park:open-master-taskpaper(ma)': ->
+    'blackwater-park:open-master-taskpaper(maaaaa)': ->
         taskList = path.join(process.env.HOME, 'Cozy/ops/master.taskpaper')
         if !taskList?
             alert 'No Master TaskPaper! Something went wrong... '

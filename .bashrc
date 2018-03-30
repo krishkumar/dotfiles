@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ### Show system info
 command archey -c
 
@@ -20,6 +22,7 @@ function yesterworkday()
     fi
 }
 
+### Amazon EC2 toolbelt
 function ec2start()
 {
     aws ec2 start-instances --instance-ids "$1"
@@ -29,3 +32,5 @@ function ec2stop()
 {
     aws ec2 stop-instances --instance-ids "$1"
 }
+
+

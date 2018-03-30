@@ -10,8 +10,8 @@ if !exists("g:go_metalinter_enabled")
   let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 endif
 
-if !exists("g:go_metalinter_deadline")
-  let g:go_metalinter_deadline = "5s"
+if !exists("g:go_metalinter_disabled")
+  let g:go_metalinter_disabled = []
 endif
 
 if !exists("g:go_golint_bin")
@@ -24,9 +24,9 @@ endif
 
 function! go#lint#Gometa(autosave, ...) abort
   if a:0 == 0
-    let goargs = shellescape(expand('%:p:h'))
+    let goargs = [expand('%:p:h')]
   else
-    let goargs = go#util#Shelljoin(a:000)
+    let goargs = a:000
   endif
 
   let bin_path = go#path#CheckBinPath("gometalinter")
@@ -44,33 +44,66 @@ function! go#lint#Gometa(autosave, ...) abort
       let cmd += ["--enable=".linter]
     endfor
 
-    " path
-    let cmd += [expand('%:p:h')]
+    for linter in g:go_metalinter_disabled
+      let cmd += ["--disable=".linter]
+    endfor
+
+    " gometalinter has a --tests flag to tell its linters whether to run
+    " against tests. While not all of its linters respect this flag, for those
+    " that do, it means if we don't pass --tests, the linter won't run against
+    " test files. One example of a linter that will not run against tests if
+    " we do not specify this flag is errcheck.
+    let cmd += ["--tests"]
   else
     " the user wants something else, let us use it.
-    let cmd += [split(g:go_metalinter_command, " ")]
+    let cmd += split(g:go_metalinter_command, " ")
   endif
 
+  if a:autosave
+    " redraw so that any messages that were displayed while writing the file
+    " will be cleared
+    redraw
+
+    " Include only messages for the active buffer for autosave.
+    let cmd += [printf('--include=^%s:.*$', fnamemodify(expand('%:p'), ":."))]
+  endif
+
+  " gometalinter has a default deadline of 5 seconds.
+  "
+  " For async mode (s:lint_job), we want to override the default deadline only
+  " if we have a deadline configured.
+  "
+  " For sync mode (go#util#System), always explicitly pass the 5 seconds
+  " deadline if there is no other deadline configured. If a deadline is
+  " configured, then use it.
+
+  " Call gometalinter asynchronously.
   if go#util#has_job() && has('lambda')
-    call s:lint_job({'cmd': cmd})
+    let deadline = get(g:, 'go_metalinter_deadline', 0)
+    if deadline != 0
+      let cmd += ["--deadline=" . deadline]
+    endif
+
+    let cmd += goargs
+
+    call s:lint_job({'cmd': cmd}, a:autosave)
     return
   endif
 
-  " we add deadline only for sync mode
-  let cmd += ["--deadline=" . g:go_metalinter_deadline]
+  " We're calling gometalinter synchronously.
+  let cmd += ["--deadline=" . get(g:, 'go_metalinter_deadline', "5s")]
+
+  let cmd += goargs
+
+  let [l:out, l:err] = go#util#Exec(cmd)
+
   if a:autosave
-    " include only messages for the active buffer
-    let cmd += ["--include='^" . expand('%:p') . ".*$'"]
+    let l:listtype = go#list#Type("GoMetaLinterAutoSave")
+  else
+    let l:listtype = go#list#Type("GoMetaLinter")
   endif
 
-
-  let meta_command = join(cmd, " ")
-
-  let out = go#tool#ExecuteInDir(meta_command)
-
-  let l:listtype = "quickfix"
-  if go#util#ShellError() == 0
-    redraw | echo
+  if l:err == 0
     call go#list#Clean(l:listtype)
     call go#list#Window(l:listtype)
     echon "vim-go: " | echohl Function | echon "[metalinter] PASS" | echohl None
@@ -96,24 +129,24 @@ endfunction
 " Golint calls 'golint' on the current directory. Any warnings are populated in
 " the location list
 function! go#lint#Golint(...) abort
-  let bin_path = go#path#CheckBinPath(g:go_golint_bin) 
-  if empty(bin_path) 
-    return 
+  let bin_path = go#path#CheckBinPath(g:go_golint_bin)
+  if empty(bin_path)
+    return
   endif
+  let bin_path = go#util#Shellescape(bin_path)
 
   if a:0 == 0
-    let goargs = shellescape(expand('%'))
+    let out = go#util#System(bin_path . " " . go#util#Shellescape(go#package#ImportPath()))
   else
-    let goargs = go#util#Shelljoin(a:000)
+    let out = go#util#System(bin_path . " " . go#util#Shelljoin(a:000))
   endif
 
-  let out = go#util#System(bin_path . " " . goargs)
   if empty(out)
     echon "vim-go: " | echohl Function | echon "[lint] PASS" | echohl None
     return
   endif
 
-  let l:listtype = "quickfix"
+  let l:listtype = go#list#Type("GoLint")
   call go#list#Parse(l:listtype, out)
   let errors = go#list#Get(l:listtype)
   call go#list#Window(l:listtype, len(errors))
@@ -126,12 +159,12 @@ function! go#lint#Vet(bang, ...) abort
   call go#cmd#autowrite()
   echon "vim-go: " | echohl Identifier | echon "calling vet..." | echohl None
   if a:0 == 0
-    let out = go#tool#ExecuteInDir('go vet')
+    let out = go#util#System('go vet ' . go#util#Shellescape(go#package#ImportPath()))
   else
-    let out = go#tool#ExecuteInDir('go tool vet ' . go#util#Shelljoin(a:000))
+    let out = go#util#System('go tool vet ' . go#util#Shelljoin(a:000))
   endif
 
-  let l:listtype = "quickfix"
+  let l:listtype = go#list#Type("GoVet")
   if go#util#ShellError() != 0
     let errors = go#tool#ParseErrors(split(out, '\n'))
     call go#list#Populate(l:listtype, errors, 'Vet')
@@ -151,13 +184,13 @@ endfunction
 " the location list
 function! go#lint#Errcheck(...) abort
   if a:0 == 0
-    let goargs = go#package#ImportPath(expand('%:p:h'))
-    if goargs == -1
+    let import_path = go#package#ImportPath()
+    if import_path == -1
       echohl Error | echomsg "vim-go: package is not inside GOPATH src" | echohl None
       return
     endif
   else
-    let goargs = go#util#Shelljoin(a:000)
+    let import_path = go#util#Shelljoin(a:000)
   endif
 
   let bin_path = go#path#CheckBinPath(g:go_errcheck_bin)
@@ -168,10 +201,10 @@ function! go#lint#Errcheck(...) abort
   echon "vim-go: " | echohl Identifier | echon "errcheck analysing ..." | echohl None
   redraw
 
-  let command = bin_path . ' -abspath ' . goargs
+  let command =  go#util#Shellescape(bin_path) . ' -abspath ' . import_path
   let out = go#tool#ExecuteInDir(command)
 
-  let l:listtype = "quickfix"
+  let l:listtype = go#list#Type("GoErrCheck")
   if go#util#ShellError() != 0
     let errformat = "%f:%l:%c:\ %m, %f:%l:%c\ %#%m"
 
@@ -179,7 +212,6 @@ function! go#lint#Errcheck(...) abort
     call go#list#ParseFormat(l:listtype, errformat, split(out, "\n"), 'Errcheck')
 
     let errors = go#list#Get(l:listtype)
-
     if empty(errors)
       echohl Error | echomsg "GoErrCheck returned error" | echohl None
       echo out
@@ -187,6 +219,7 @@ function! go#lint#Errcheck(...) abort
     endif
 
     if !empty(errors)
+      echohl Error | echomsg "GoErrCheck found errors" | echohl None
       call go#list#Populate(l:listtype, errors, 'Errcheck')
       call go#list#Window(l:listtype, len(errors))
       if !empty(errors)
@@ -212,7 +245,7 @@ function! go#lint#ToggleMetaLinterAutoSave() abort
   call go#util#EchoProgress("auto metalinter enabled")
 endfunction
 
-function s:lint_job(args)
+function! s:lint_job(args, autosave)
   let status_dir = expand('%:p:h')
   let started_at = reltime()
 
@@ -225,29 +258,27 @@ function s:lint_job(args)
   " autowrite is not enabled for jobs
   call go#cmd#autowrite()
 
-  let l:listtype = go#list#Type("quickfix")
+  if a:autosave
+    let l:listtype = go#list#Type("GoMetaLinterAutoSave")
+  else
+    let l:listtype = go#list#Type("GoMetaLinter")
+  endif
+
   let l:errformat = '%f:%l:%c:%t%*[^:]:\ %m,%f:%l::%t%*[^:]:\ %m'
 
-  function! s:callback(chan, msg) closure
-    let old_errorformat = &errorformat
-    let &errorformat = l:errformat
-    caddexpr a:msg
-    let &errorformat = old_errorformat
+  let l:messages = []
+  let l:exited = 0
+  let l:closed = 0
+  let l:exit_status = 0
+  let l:winnr = winnr()
 
-    " TODO(arslan): cursor still jumps to first error even If I don't want
-    " it. Seems like there is a regression somewhere, but not sure where.
-    copen
+  function! s:callback(chan, msg) closure
+    call add(messages, a:msg)
   endfunction
 
-  function! s:close_cb(chan) closure
-    let l:job = ch_getjob(a:chan)
-    let l:status = job_status(l:job)
-
-    let exitval = 1
-    if l:status == "dead"
-      let l:info = job_info(l:job)
-      let exitval = l:info.exitval
-    endif
+  function! s:exit_cb(job, exitval) closure
+    let exited = 1
+    let exit_status = a:exitval
 
     let status = {
           \ 'desc': 'last status',
@@ -255,7 +286,7 @@ function s:lint_job(args)
           \ 'state': "finished",
           \ }
 
-    if exitval
+    if a:exitval
       let status.state = "failed"
     endif
 
@@ -266,16 +297,33 @@ function s:lint_job(args)
 
     call go#statusline#Update(status_dir, status)
 
-    let errors = go#list#Get(l:listtype)
-    if empty(errors) 
-      call go#list#Window(l:listtype, len(errors))
-    elseif has("patch-7.4.2200")
-      if l:listtype == 'quickfix'
-        call setqflist([], 'a', {'title': 'GoMetaLinter'})
-      else
-        call setloclist(0, [], 'a', {'title': 'GoMetaLinter'})
-      endif
+    if closed
+      call s:show_errors()
     endif
+  endfunction
+
+  function! s:close_cb(ch) closure
+    let closed = 1
+
+    if exited
+      call s:show_errors()
+    endif
+  endfunction
+
+
+  function! s:show_errors() closure
+    " make sure the current window is the window from which gometalinter was
+    " run when the listtype is locationlist so that the location list for the
+    " correct window will be populated.
+    if l:listtype == 'locationlist'
+      exe l:winnr . "wincmd w"
+    endif
+
+    let l:errorformat = '%f:%l:%c:%t%*[^:]:\ %m,%f:%l::%t%*[^:]:\ %m'
+    call go#list#ParseFormat(l:listtype, l:errorformat, messages, 'GoMetaLinter')
+
+    let errors = go#list#Get(l:listtype)
+    call go#list#Window(l:listtype, len(errors))
 
     if get(g:, 'go_echo_command_info', 1)
       call go#util#EchoSuccess("linting finished")
@@ -283,13 +331,12 @@ function s:lint_job(args)
   endfunction
 
   let start_options = {
-        \ 'callback': function("s:callback"),
-        \ 'close_cb': function("s:close_cb"),
+        \ 'callback': funcref("s:callback"),
+        \ 'exit_cb': funcref("s:exit_cb"),
+        \ 'close_cb': funcref("s:close_cb"),
         \ }
 
   call job_start(a:args.cmd, start_options)
-
-  call go#list#Clean(l:listtype)
 
   if get(g:, 'go_echo_command_info', 1)
     call go#util#EchoProgress("linting started ...")
