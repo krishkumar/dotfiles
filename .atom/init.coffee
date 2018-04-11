@@ -26,7 +26,7 @@ atom.commands.add 'atom-workspace',
 
 # ideas
 atom.commands.add 'atom-workspace',
-    'blackwater-park:open-ideas(iii)': ->
+    'blackwater-park:open-ideas(iiiiii)': ->
         todoList = path.join(process.env.HOME, 'Cozy/ops/Ideas.md')
         if !todoList?
             alert 'No Ideas! Enjoy your day... '
@@ -53,7 +53,7 @@ atom.commands.add 'atom-workspace',
 
 # release-calendar
 atom.commands.add 'atom-workspace',
-    'blackwater-park:open-release-calendar(ccc)': ->
+    'blackwater-park:open-release-calendar(cccccc)': ->
         todoList = path.join(process.env.HOME, 'Cozy/ops/release-calendar.md')
         if !todoList?
             alert 'No Release Calendar! Something went wrong... '
@@ -62,7 +62,7 @@ atom.commands.add 'atom-workspace',
 
 # master taskpaper
 atom.commands.add 'atom-workspace',
-    'blackwater-park:open-master-taskpaper(maaaaa)': ->
+    'blackwater-park:open-master-taskpaper(maaaaaa)': ->
         taskList = path.join(process.env.HOME, 'Cozy/ops/master.taskpaper')
         if !taskList?
             alert 'No Master TaskPaper! Something went wrong... '
@@ -71,7 +71,7 @@ atom.commands.add 'atom-workspace',
 
 # this month's taskpaper
 atom.commands.add 'atom-workspace',
-    'blackwater-park:open-monthly-taskpaper(mmm)': ->
+    'blackwater-park:open-monthly-taskpaper(mmmmmm)': ->
         monthNames = [ 'January', 'February','March','April','May','June','July','August','September','October','November','December']
         d = new Date
         currentMonth = monthNames[d.getMonth()]
@@ -83,7 +83,7 @@ atom.commands.add 'atom-workspace',
 
 # open journal
 atom.commands.add 'atom-workspace',
-    'blackwater-park:open-journal(jjj)': ->
+    'blackwater-park:open-journal(jjjjjj)': ->
         journal = path.join(process.env.HOME, 'Cozy/ops/journal.txt')
         if !journal?
             alert 'No journal! Something went wrong... '
