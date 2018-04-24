@@ -7,7 +7,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
+alias d="cd ~/Cozy"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias m="cd ~/master"
@@ -141,7 +141,7 @@ alias podcast="mplayer -cache 8192"
 
 alias count="wc -l"
 
-alias standup="$HOME/Dropbox/dev/standuplog.sh"
+alias standup="$HOME/Cozy/dev/standuplog.sh"
 
 #website png generator
 alias webkit2png="webkit2png --ignore-ssl-check"
@@ -158,4 +158,5 @@ alias hh="vim $MYOPSDIR/journal.md;ok"
 alias mm="cd $MYMASTERDIR"
 alias dd="cd $MYDEVDIR"
 alias oo="cd $MYOPSDIR"
+alias sketchtool="~/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool"
 
