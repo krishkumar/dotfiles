@@ -50,7 +50,7 @@ added = difftool --cached
 
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitexcludes
 	attributesfile = ~/.gitattributes
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
@@ -106,3 +106,5 @@ added = difftool --cached
 
 [push]
 	default = matching
+[user]
+	name = krishna
