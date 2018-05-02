@@ -27,6 +27,8 @@
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	# generate release notes since last annotated tag
 	releasenotes = log --pretty=format:"-%s%n%b" --since="$(git show -s --format=%ad `git rev-list --tags --max-count=1`)"
+    # resume work
+    open = !vim `git-open.sh`
 
 # assumes git.git clone at ~/src/git
 diff-highlight = "!f() { git diff --color | diff-so-fancy \"$@\" | ~/src/git/contrib/diff-highlight/diff-highlight; }; f"
