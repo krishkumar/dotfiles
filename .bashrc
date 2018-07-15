@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### Show system info
-command archey -c
+neofetch
 
 [ -n "$PS1" ]
 # source ~/.bash_profile
