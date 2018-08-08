@@ -61,7 +61,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias flush="dscacheutil -flushcache; killall -HUP mDNSResponder"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -88,9 +88,16 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
+#Apple
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+
+# cleanup Xcode
+alias xc='rm -rf ~/Library/Developer/Xcode/DerivedData'
+
+# Go to iCloud Drive 
+alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -132,16 +139,15 @@ done
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
-alias git="git-achievements"
-alias readme="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
 
 #audio stuff
 alias mp32caf="afconvert -f caff -d aac -c 1 "
 alias podcast="mplayer -cache 8192"
 
-alias count="wc -l"
-
+# Git
+alias git="git-achievements"
 alias standup="$HOME/Cozy/dev/standuplog.sh"
+alias readme="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
 
 #website png generator
 alias webkit2png="webkit2png --ignore-ssl-check"
@@ -149,9 +155,18 @@ alias webkit2png="webkit2png --ignore-ssl-check"
 #generate random alphanumeric
 alias randgen="LC_ALL=C tr -dc "[:alpha:][:alnum:]" < /dev/urandom | head -c 8"
 
+# did - what did you get done? 
+alias did="vim +'normal Go' +'r!date' ~/Cozy/ops/did.txt"
+
+# pretty JSON
+alias prettyjson='python -m json.tool'
+
 # aws stuff 
 alias ec2running="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text"
 alias ec2status="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==\`Name\`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress]' --output text | column -t"
+
+# Start a Jupyter instance - Anacona
+alias startjupe="/Users/krishna/anaconda3/bin/jupyter_mac.command ; exit;"
 
 # Blackwater Park Studios 
 alias hh="vim $MYOPSDIR/journal.md;ok"
