@@ -25,8 +25,9 @@ export GREP_OPTIONS="--color=auto"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Blackwater Park Studios
-export MYOPSDIR="$HOME/Cozy/ops"
-export MYDEVDIR="$HOME/Cozy/dev"
+export MYOPSDIR="$HOME/Dropbox/ops"
+export MYDEVDIR="$HOME/Dropbox/dev"
 export MYMASTERDIR="$HOME/master"
+export MYARCHIVEDIR="$HOME/Dropbox/Archive"
 
 

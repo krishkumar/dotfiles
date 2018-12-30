@@ -7,7 +7,8 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Cozy"
+alias bb="cd /Volumes/BPSTUDIOS/"
+alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias m="cd ~/master"
@@ -19,6 +20,7 @@ alias v="vim"
 alias a="atom ."
 alias o="open"
 alias oo="open ."
+alias dg="dig google.com"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -96,7 +98,7 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 # cleanup Xcode
 alias xc='rm -rf ~/Library/Developer/Xcode/DerivedData'
 
-# Go to iCloud Drive 
+# Go to iCloud Drive
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 
 # Show/hide hidden files in Finder
@@ -113,6 +115,10 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Smaller PDFs
+alias compresspdf='convert -density 200x200 -quality 60 -compress jpeg'
+# pcc-chennai.png test.pdf'
 
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
@@ -146,8 +152,9 @@ alias podcast="mplayer -cache 8192"
 
 # Git
 alias git="git-achievements"
-alias standup="$HOME/Cozy/dev/standuplog.sh"
+alias standup="$HOME/Dropbox/dev/standuplog.sh"
 alias readme="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
+alias gg="lazygit"
 
 #website png generator
 alias webkit2png="webkit2png --ignore-ssl-check"
@@ -155,23 +162,23 @@ alias webkit2png="webkit2png --ignore-ssl-check"
 #generate random alphanumeric
 alias randgen="LC_ALL=C tr -dc "[:alpha:][:alnum:]" < /dev/urandom | head -c 8"
 
-# did - what did you get done? 
-alias did="vim +'normal Go' +'r!date' ~/Cozy/ops/did.txt"
+# did - what did you get done?
+alias did="vim +'normal Go' +'r!date' ~/Dropbox/ops/did.txt"
 
 # pretty JSON
 alias prettyjson='python -m json.tool'
 
-# aws stuff 
+# aws stuff
 alias ec2running="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text"
 alias ec2status="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==\`Name\`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress]' --output text | column -t"
 
 # Start a Jupyter instance - Anacona
 alias startjupe="/Users/krishna/anaconda3/bin/jupyter_mac.command ; exit;"
 
-# Blackwater Park Studios 
+# Blackwater Park Studios
 alias hh="vim $MYOPSDIR/journal.md;ok"
 alias mm="cd $MYMASTERDIR"
 alias dd="cd $MYDEVDIR"
 alias oo="cd $MYOPSDIR"
+alias aa="cd $MYARCHIVEDIR"
 alias sketchtool="~/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool"
-
