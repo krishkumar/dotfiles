@@ -172,7 +172,7 @@ alias prettyjson='python -m json.tool'
 alias ec2running="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text"
 alias ec2status="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==\`Name\`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress]' --output text | column -t"
 
-# Start a Jupyter instance - Anacona
+# Start a Jupyter instance - Anaconda
 alias startjupe="/Users/krishna/anaconda3/bin/jupyter_mac.command ; exit;"
 
 # Blackwater Park Studios
