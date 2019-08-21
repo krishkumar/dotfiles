@@ -29,5 +29,3 @@ export MYOPSDIR="$HOME/Dropbox/ops"
 export MYDEVDIR="$HOME/Dropbox/dev"
 export MYMASTERDIR="$HOME/master"
 export MYARCHIVEDIR="$HOME/Dropbox/Archive"
-
-

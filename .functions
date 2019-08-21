@@ -245,9 +245,13 @@ function unquarantine() {
 	done
 }
 
-# Install Grunt plugins and add them as `devDependencies` to `package.json`
-# Usage: `gi contrib-watch contrib-uglify zopfli`
-function gi() {
-	local IFS=,
-	eval npm install --save-dev grunt-{"$*"}
+# Work Day aware Yesterday
+function yesterworkday()
+{
+    if [[ "1" == "$(date +%u)" ]]
+    then
+        echo "last friday"
+    else
+        echo "yesterday"
+    fi
 }

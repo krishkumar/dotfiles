@@ -7,12 +7,6 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias bb="cd /Volumes/BPSTUDIOS/"
-alias d="cd ~/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias m="cd ~/master"
-alias u="cd ~/.atom/packages/"
 alias g="git"
 alias h="history"
 alias j="jobs"
@@ -152,7 +146,6 @@ alias podcast="mplayer -cache 8192"
 
 # Git
 alias git="git-achievements"
-alias standup="$HOME/Dropbox/dev/standuplog.sh"
 alias readme="pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less"
 alias gg="lazygit"
 
@@ -163,23 +156,19 @@ alias webkit2png="webkit2png --ignore-ssl-check"
 alias randgen="LC_ALL=C tr -dc "[:alpha:][:alnum:]" < /dev/urandom | head -c 8"
 
 # did - what did you get done?
-alias did="vim +'normal Go' +'r!date' ~/Dropbox/ops/did.txt"
+alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 # pretty JSON
 alias prettyjson='python -m json.tool'
 
-# aws stuff
-alias ec2running="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text"
-alias ec2status="aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==\`Name\`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress]' --output text | column -t"
-
-# Start a Jupyter instance - Anaconda
-alias startjupe="/Users/krishna/anaconda3/bin/jupyter_mac.command ; exit;"
+# ntfy terminal notifications
+alias pntfy="ntfy -b pushover"
+alias ok="ntfy send 'Done'"
+alias pok="pntfy send 'Done'"
 
 # Blackwater Park Studios
-alias hh="vim $MYOPSDIR/journal.md;ok"
 alias mm="cd $MYMASTERDIR"
 alias dd="cd $MYDEVDIR"
 alias oo="cd $MYOPSDIR"
 alias aa="cd $MYARCHIVEDIR"
 alias sketchtool="~/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool"
-alias bb="cd $MYMASTERDIR/box1"
