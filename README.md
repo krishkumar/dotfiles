@@ -3,4 +3,4 @@
 - zsh
 - zprezto
 - powerline10k
-- vim-runtime
+- spacevim
