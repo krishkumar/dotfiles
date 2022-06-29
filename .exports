@@ -1,5 +1,5 @@
 # Make vim the default editor
-export EDITOR="vim"
+export EDITOR="nvim"
 export VISUAL=$EDITOR
 
 # Larger bash history (allow 32³ entries; default is 500)
@@ -27,9 +27,9 @@ export GREP_OPTIONS="--color=auto"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Magic Ive
-export MYOPSDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Documents\ -\ Krishna’s\ Mac\ Pro/ops/"
-export MYDEVDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Documents\ -\ Krishna’s\ Mac\ Pro/dev/"
+export MYOPSDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/all/ops/"
+export MYDEVDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/all/dev/"
 export MYMASTERDIR="$HOME/master"
-export MYARCHIVEDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Documents\ -\ Krishna’s\ Mac\ Pro/Archive/"
-export MYDOCDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Documents\ -\ Krishna’s\ Mac\ Pro/"
+export MYARCHIVEDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/all/Archive/"
+export MYDOCDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/all/"
 

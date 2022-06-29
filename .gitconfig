@@ -108,8 +108,15 @@ added = difftool --cached
 
 [push]
 	default = matching
-[user]
-    name = krishna
-    email = krish.kumar@gmail.com
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	template = /Users/krishna/.gitmessage
+[user]
+	name = krishna
+	email = krish.kumar@gmail.com

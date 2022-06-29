@@ -1,1 +1,9 @@
-export PATH="~/Library/Python/3.8/bin:$PATH"
+# Python, Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+
+# pipx
+export PATH="~/.local/bin:$PATH"
+
+# rust
+export PATH="~/.cargo/bin:$PATH"

@@ -10,6 +10,9 @@
     buffer_index_type = 4
     windows_index_type = 3
     filemanager = "nerdtree"
+    windows_leader = "]"
+    enable_language_specific_leader = 0
+    colorscheme = "onedark"
 
 # Enable autocomplete layer
 [[layers]]
@@ -32,6 +35,12 @@ name = "lang#swift"
 [[layers]]
 name = "lang#markdown"
 
+[[layers]]
+name = "tools"
+
+[[layers]]
+name = "colorscheme"
+
 [[custom_plugins]]
 name = 'wakatime/vim-wakatime'
 enable = true
@@ -43,15 +52,49 @@ name = "fzf"
 name = "VersionControl"
 
 [[layers]]
-name = "ctrlspace"
-enable-spacevim-styled-keys = true
-
-[[layers]]
-name = "ctrlp"
-
-[[layers]]
 name = "default"
 
 [[layers]]
 name = "git"
 git_plugin = 'fugitive'
+
+[[custom_plugins]]
+repo = "https://github.com/junegunn/fzf.vim"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/junegunn/fzf"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/airblade/vim-gitgutter"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/jremmen/vim-ripgrep"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/prabirshrestha/vim-lsp"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/prabirshrestha/async.vim"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/keith/swift.vim"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/ryanoasis/vim-devicons"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/arcticicestudio/nord-vim"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/joshdick/onedark.vim"
+merged = 0
+
