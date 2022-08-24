@@ -43,13 +43,6 @@ name = "fzf"
 name = "VersionControl"
 
 [[layers]]
-name = "ctrlspace"
-enable-spacevim-styled-keys = true
-
-[[layers]]
-name = "ctrlp"
-
-[[layers]]
 name = "default"
 
 [[layers]]
