@@ -12,6 +12,7 @@
     filemanager = "nerdtree"
     windows_leader = "]"
     enable_language_specific_leader = 0
+    colorscheme = "onedark"
 
 # Enable autocomplete layer
 [[layers]]
@@ -84,5 +85,13 @@ merged = 0
 
 [[custom_plugins]]
 repo = "https://github.com/ryanoasis/vim-devicons"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/arcticicestudio/nord-vim"
+merged = 0
+
+[[custom_plugins]]
+repo = "https://github.com/joshdick/onedark.vim"
 merged = 0
 

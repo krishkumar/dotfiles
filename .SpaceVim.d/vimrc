@@ -26,4 +26,11 @@ if 1
     execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
 endif
 " vim:set et sw=2
-set guifont=MesloLGS\ NF\ Regular:h22
+if has('vim')
+" vim only features
+set guifont=MesloLGS\ NF\ Regular:h28
+endif
+let g:git_messenger_always_into_popup = v:true
+let g:git_messenger_include_diff = "current"
+set termguicolors
+
