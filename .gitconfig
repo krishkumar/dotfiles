@@ -116,7 +116,5 @@ added = difftool --cached
 	process = git-lfs filter-process
 	required = true
 [commit]
-	template = /Users/krishna/.gitmessage
-[user]
-	name = krishna
-	email = krish.kumar@gmail.com
+	template = ~/.gitmessage
+
