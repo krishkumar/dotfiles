@@ -16,6 +16,7 @@ alias o="open"
 alias oo="open ."
 alias dg="dig google.com"
 alias r="ranger"
+alias ssh="env TERM=xterm-256color ssh"
 #
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -175,3 +176,4 @@ alias oo="cd $MYOPSDIR"
 alias aa="cd $MYARCHIVEDIR"
 alias bb="cd $MYMASTERDIR/magicive-cloud"
 alias ss="cd $MYMASTERDIR/scratch"
+alias pub="cd ~/Library/Mobile\ Documents/iCloud\~com\~apple\~iBooks/Documents"

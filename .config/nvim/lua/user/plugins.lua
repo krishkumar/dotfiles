@@ -122,7 +122,7 @@ return packer.startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
 
-  -- Copilot
+  -- Copilot, openai
   use {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
@@ -132,6 +132,9 @@ return packer.startup(function(use)
       end)
     end,
   }
+
+  use { "aduros/ai.vim" }
+
   -- Code screenshots
   use {
     "narutoxy/silicon.lua",
