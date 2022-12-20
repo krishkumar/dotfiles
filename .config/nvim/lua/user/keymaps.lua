@@ -87,3 +87,6 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 -- Save --
 -- Press leader fs to save file
 keymap("", "<leader>fs", ":w<CR>", opts)
+
+-- Openai
+keymap("", "<leader>ai", ":AI fix grammar and spelling and replace slang and contractions with a formal academic writing style<CR>", opts)
