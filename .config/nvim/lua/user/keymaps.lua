@@ -79,14 +79,19 @@ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- Quit --
--- Press leader q to quit
--- keymap("", "<leader>q", ":q<CR>", opts)
--- keymap("", "<leader>qQ", ":q!<CR>", opts)
-
 -- Save --
 -- Press leader fs to save file
 keymap("", "<leader>fs", ":w<CR>", opts)
 
 -- Openai
-keymap("", "<leader>ai", ":AI fix grammar and spelling and replace slang and contractions with a formal academic writing style<CR>", opts)
+keymap("", "<leader>aig", ":AI fix grammar and spelling and replace slang and contractions with a formal academic writing style<CR>", opts)
+
+-- LSP
+-- Press Enter to coc confirm the suggestion
+keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
+-- keymap("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', {silent = true, noremap = true, expr = true, replace_keycodes = false})
+keymap("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], {silent = true, noremap = true, expr = true, replace_keycodes = false})
+
+-- Swift
+-- Build Swift file
+keymap("n", "<leader>b", ":!swift -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -Xlinker -rpath -Xlinker /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -lswiftCore %<CR>")
