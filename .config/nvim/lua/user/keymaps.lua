@@ -87,10 +87,11 @@ keymap("", "<leader>fs", ":w<CR>", opts)
 keymap("", "<leader>aig", ":AI fix grammar and spelling and replace slang and contractions with a formal academic writing style<CR>", opts)
 
 -- LSP
--- Press Enter to coc confirm the suggestion
-keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
--- keymap("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', {silent = true, noremap = true, expr = true, replace_keycodes = false})
-keymap("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], {silent = true, noremap = true, expr = true, replace_keycodes = false})
+-- Use <Tab> and <S-Tab> to navigate through popup menu
+vim.cmd [[ 
+  inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+]]
 
 -- Swift
 -- Build Swift file
