@@ -80,11 +80,11 @@ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Save --
--- Press leader fs to save file
-keymap("", "<leader>fs", ":w<CR>", opts)
+-- Press leader s to save file
+keymap("", "<leader>s", ":w<CR>", opts)
 
 -- Openai
-keymap("", "<leader>aig", ":AI fix grammar and spelling and replace slang and contractions with a formal academic writing style<CR>", opts)
+keymap("", "<leader>gg", ":AI fix grammar and spelling and replace slang and contractions with a formal academic writing style % <CR>", opts)
 
 -- LSP
 -- Use <Tab> and <S-Tab> to navigate through popup menu
@@ -96,3 +96,8 @@ vim.cmd [[
 -- Swift
 -- Build Swift file
 keymap("n", "<leader>b", ":!swift -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -Xlinker -rpath -Xlinker /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -lswiftCore %<CR>")
+keymap("n", "<leader>ff", ":!swiftformat --swiftversion 5.5 %<CR>")
+
+-- Alpha
+-- Show dash
+keymap("n", "<leader>a", ":Alpha<CR>")
