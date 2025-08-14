@@ -5,17 +5,4 @@
 !.gitignore
 !README.md
 
-# .config/
-!.config/ranger
-!.config/kitty
-!.config/nvim
-# !.config/github-copilot
-
-!.npmrc
-
-!.vimrc
-!.vim/
-.vim/*
-!.SpaceVim.d/
-!.vim/autoload
-
+# .config/ - excluded from tracking
