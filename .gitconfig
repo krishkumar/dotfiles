@@ -77,6 +77,7 @@ added = difftool --cached
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = meld
 
 [diff]
 	  tool = icdiff
@@ -117,4 +118,15 @@ added = difftool --cached
 	required = true
 [commit]
 	template = ~/.gitmessage
-
+[init]
+	defaultBranch = main
+[diff]
+      tool = meld
+[difftool]
+      prompt = false
+[difftool "meld"]
+      cmd = meld "$LOCAL" "$REMOTE"
+[mergetool "meld"]
+     cmd = meld --auto-merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[http]
+	postBuffer = 2097152000

@@ -33,6 +33,9 @@ alias la="ls -latr ${colorflag}"
 
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
+#
+# List sort by latest
+alias lll='ls -latr ${colorflag}'
 
 # Always use color output for `ls`
 alias ls="command gls ${colorflag} --hyperlink=auto"
@@ -157,7 +160,7 @@ alias webkit2png="webkit2png --ignore-ssl-check"
 #generate random alphanumeric
 #alias randgen="LC_ALL=C tr -dc "[:alpha:][:alnum:]" < /dev/urandom | head -c 8"
 #alias randgen="cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c100"
-alias randgen="export LC_ALL=C; tr -dc '0-9a-zA-Z' < /dev/urandom | head -c 15"
+alias randgen="export LC_ALL=C; tr -dc '0-9a-zA-Z' < /dev/urandom | head -c 31"
 
 # pretty JSON
 alias prettyjson='python -m json.tool'
@@ -165,8 +168,8 @@ alias prettyjson='python -m json.tool'
 # Learning
 alias h='less ~/.zprezto/modules/git/alias.zsh' 
 
-# ntfy terminal notifications
-alias pntfy="ntfy -b pushover"
+# AI
+alias name-image='npx ai-renamer $1 --provider=ollama --model=minicpm-v:latest'
 
 # Swift
 alias swift="swift -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -Xlinker -rpath -Xlinker /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -lswiftCore"
@@ -180,3 +183,4 @@ alias aa="cd $MYARCHIVEDIR"
 alias bb="cd $MYMASTERDIR/magicive-cloud"
 alias ss="cd $MYMASTERDIR/scratch"
 alias pub="cd ~/Library/Mobile\ Documents/iCloud\~com\~apple\~iBooks/Documents"
+

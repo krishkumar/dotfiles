@@ -2,6 +2,8 @@
 export EDITOR="nvim"
 export VISUAL=$EDITOR
 
+# PHP
+export PHPENV_ROOT="/Users/krishna/.phpenv"
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
@@ -25,6 +27,10 @@ export GREP_OPTIONS="--color=auto"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# AI
+# huggingface
+export HF_HOME=/Volumes/SSD1/hf_home
 
 # Magic Ive
 export MYOPSDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/all/ops/"
