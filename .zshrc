@@ -1,10 +1,3 @@
-# prompt
-eval "$(starship init zsh)"
-# Customize to your needs...
-
-# zoxide 
-eval "$(zoxide init zsh)"
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -12,14 +5,19 @@ for file in ~/.{path,exports,aliases,functions,extra,git_aliases}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
+#
+# prompt
+eval "$(starship init zsh)"
+# Customize to your needs...
+
+# zoxide 
+eval "$(zoxide init zsh)"
 
 # ZSH idiosyncrasy
 PROMPT_EOL_MARK=''
 
 # turn off autocorrect
 unsetopt CORRECT
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 ## autocomplete
 if [[ ! -o interactive ]]; then
