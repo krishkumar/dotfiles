@@ -39,3 +39,6 @@ export MYMASTERDIR="$HOME/master"
 export MYARCHIVEDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/all/Archive/"
 export MYDOCDIR="~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/all/"
 
+# Claude
+export CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1
+
