@@ -30,8 +30,8 @@ autoload -Uz compinit && compinit -C
 autoload -Uz bashcompinit && bashcompinit
 
 # Load Git completion
-zstyle ':completion:*:*:git:*' script /opt/homebrew/share/zsh/site-functions/git-completion.bash
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+zstyle ':completion:*:*:git:*' script $HOMEBREW_PREFIX/share/zsh/site-functions/git-completion.bash
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 
 # Enable menu selection and case-insensitive completion
 zstyle ':completion:*' menu select
@@ -68,10 +68,10 @@ setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from each command line 
 plugins=(git fzf)
 
 # Load zsh-autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load zsh-history-substring-search
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Bind keys for history substring search
 bindkey '^[[A' history-substring-search-up    # Up arrow
