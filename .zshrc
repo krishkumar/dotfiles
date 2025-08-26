@@ -24,6 +24,24 @@ if [[ ! -o interactive ]]; then
     return
 fi
 
+# Enable Git completion with branch name support
+# Use -C to skip security check and -i to ignore insecure directories
+autoload -Uz compinit && compinit -C
+autoload -Uz bashcompinit && bashcompinit
+
+# Load Git completion
+zstyle ':completion:*:*:git:*' script /opt/homebrew/share/zsh/site-functions/git-completion.bash
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+
+# Enable menu selection and case-insensitive completion
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Git branch completion with slash support
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*:git-checkout:*' tag-order 'heads'
+
 # session-wise fix
 ulimit -n 4096
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
