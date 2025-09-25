@@ -33,6 +33,7 @@ alias gcr='git revert'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdt='git diff-tree'
+alias gdf='git diff-tree --no-commit-id --name-only -r'
 
 # Fetch
 alias gf='git fetch'
