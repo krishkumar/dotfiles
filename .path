@@ -1,16 +1,28 @@
-# Python, Ruby
+# ============================================================
+# PATH Configuration
+# ============================================================
+
+# Version Managers (Python, Ruby)
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 
-# rust
-export PATH="~/.cargo/bin:$PATH"
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Java
 export PATH="$HOMEBREW_PREFIX/opt/openjdk@17/bin:$PATH"
 
 # npm
-export PATH=~/.npm-global/bin:$PATH
+export PATH="$HOME/.npm-global/bin:$PATH"
 
-# Ruby
-export PATH="$HOMEBREW_PREFIX/opt/ruby@3.1/bin:$PATH"
+# nvm node (for non-interactive shells)
+export PATH="$HOME/.nvm/versions/node/v24.9.0/bin:$PATH"
 
+# PostgreSQL
 export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
 
+# LM Studio
+export PATH="$PATH:$HOME/.lmstudio/bin"
+
+# OpenCode
+export PATH="$HOME/.opencode/bin:$PATH"
