@@ -11,13 +11,20 @@ alias ~="cd ~"
 alias -- -="cd -"
 
 # Project directories (Magic Ive)
-alias mm="cd $MYMASTERDIR"
-alias dd="cd $MYDOCDIR"
-alias da="cd $MYARCHIVEDIR/digitalarchive"
-alias aa="cd $MYARCHIVEDIR"
-alias bb="cd $MYMASTERDIR/magicive-cloud"
-alias ss="cd $MYMASTERDIR/scratch"
-alias ops="cd $MYOPSDIR"
+alias mm="cd '$MYMASTERDIR'"
+alias dd="cd '$MYDOCDIR'"
+alias da="cd '$MYARCHIVEDIR/digitalarchive'"
+alias aa="cd '$MYARCHIVEDIR'"
+alias bb="cd '$MYMASTERDIR/magicive-cloud'"
+alias ss="cd '$MYMASTERDIR/scratch'"
+alias ops="cd '$MYOPSDIR'"
+alias dt="cd ~/Desktop"
+
+# Desktop project shortcuts
+alias wrk="cd ~/Desktop/work"
+alias np="cd ~/Desktop/nextproduct"
+alias ch="cd ~/Desktop/chennai-tasks"
+
 alias pub="cd ~/Library/Mobile\ Documents/iCloud\~com\~apple\~iBooks/Documents"
 
 # General shortcuts
