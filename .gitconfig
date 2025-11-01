@@ -135,3 +135,6 @@ ai-commit = "!f() { msg=$(git diff --cached | ollama run qwen3-coder-30b-16k:lat
 	postBuffer = 2097152000
 [wt]
 	basedir = ../{gitroot}-wt
+[user]
+  name = "Krishna Kumar"
+  email = krish.kumar@gmail.com
