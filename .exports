@@ -115,3 +115,10 @@ export MYMASTERDIR="$HOME/master"
 # Claude Code
 # Maintains project working directory across bash calls in agent mode
 export CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1
+
+# -----------------------------------------------------------------------------
+# AWS Configuration
+# -----------------------------------------------------------------------------
+
+# Default AWS profile
+export AWS_PROFILE=account-latest
