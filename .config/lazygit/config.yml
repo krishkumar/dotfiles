@@ -1,0 +1,25 @@
+gui:
+  # Show command log
+  showCommandLog: true
+
+# Editor configuration
+os:
+  # Open files in Neovim
+  edit: "nvim {{filename}}"
+  editAtLine: "nvim +{{line}} {{filename}}"
+  editAtLineAndWait: "nvim +{{line}} {{filename}}"
+  openDirInEditor: "nvim {{dir}}"
+
+# Git configuration
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
+# Keybindings
+keybinding:
+  universal:
+    # Open file in editor
+    edit: 'e'
+    # Open file in external editor (doesn't wait)
+    openFile: 'o'
