@@ -32,7 +32,7 @@
 
 # assumes git.git clone at ~/src/git
 diff-highlight = "!f() { git diff --color | diff-so-fancy \"$@\" | ~/src/git/contrib/diff-highlight/diff-highlight; }; f"
-	happify = !sh -c \"ln -s ~/.git/hooks/post-{commit,update} .git/hooks\"
+happify = !sh -c \"ln -s ~/.git/hooks/post-{commit,update} .git/hooks\"
 
 releases = log --all --graph --decorate --oneline --simplify-by-decoration
 
@@ -45,6 +45,9 @@ lm = log --grep=Merge
 # better diff
 showtool = "!f() { git difftool $1^ $1; }; f"
 added = difftool --cached
+
+# generate commit from lmstudio model
+ai-commit = !git diff --cached | llm -m lmstudio \"Output ONLY a commitlint commit message for this diff. Format: type(scope): subject. No formatting, no explanation, just the raw message text.\" | git commit -F -
 
 [apply]
 	# Detect whitespace errors when applying a patch
