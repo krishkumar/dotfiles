@@ -27,5 +27,5 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # OpenCode
 export PATH="$HOME/.opencode/bin:$PATH"
 
-# Claude
+# Claude, kiro cli
 export PATH="$HOME/.local/bin:$PATH"

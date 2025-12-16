@@ -154,3 +154,9 @@ ulimit -n 4096
 
 # macOS fork safety for Objective-C runtime
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/krishna/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH=$PATH:$HOME/.maestro/bin
