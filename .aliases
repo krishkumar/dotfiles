@@ -39,6 +39,9 @@ alias dg="dig google.com"
 alias r="ranger"
 alias ssh="env TERM=xterm-256color ssh"
 
+# Tmux - terminal manager 
+alias tmux='tmux new-session -A -s main'
+
 # ============================================================
 # FILE OPERATIONS & LISTING
 # ============================================================
