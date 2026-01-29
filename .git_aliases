@@ -324,3 +324,44 @@ alias gwc='git clean --dry-run'
 alias gwC='git clean --force'
 alias gwx='git rm -r'
 alias gwX='git rm -r --force'
+
+# ============================================================
+# WORKTREE (git-wt)
+# ============================================================
+
+# Core commands
+alias ww='git wt'                          # List or switch worktrees
+alias wwd='git worktree remove'            # Delete worktree only (keep branch)
+alias wwD='git worktree remove --force'    # Force delete worktree only (keep branch)
+alias wwdb='git wt -d'                     # Delete worktree AND branch (safe)
+alias wwDB='git wt -D'                     # Force delete worktree AND branch
+
+# Quick branch prefixes (works from anywhere, creates in parent dir)
+function wwf() {
+  local base="$(dirname "$(git rev-parse --show-toplevel 2>/dev/null)")"
+  command git wt --basedir "$base" "feature/$1" $2
+}
+function wwb() {
+  local base="$(dirname "$(git rev-parse --show-toplevel 2>/dev/null)")"
+  command git wt --basedir "$base" "bugfix/$1" $2
+}
+function wwh() {
+  local base="$(dirname "$(git rev-parse --show-toplevel 2>/dev/null)")"
+  command git wt --basedir "$base" "hotfix/$1" $2
+}
+
+# Fuzzy select with fzf (cd to selected worktree)
+function wwz() {
+  local selected=$(git worktree list --porcelain | grep "^worktree" | cut -d" " -f2- | fzf)
+  [[ -n "$selected" ]] && cd "$selected"
+}
+
+# Status
+alias wws='git worktree list'
+
+# Native fallbacks
+alias gwt='git worktree'
+alias gwtl='git worktree list'
+alias gwta='git worktree add'
+alias gwtr='git worktree remove'
+alias gwtp='git worktree prune'

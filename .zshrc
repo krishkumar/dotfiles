@@ -117,6 +117,11 @@ if command -v zoxide &> /dev/null; then
     eval "$(zoxide init zsh)"
 fi
 
+# Git Worktree (git-wt)
+if command -v git-wt &> /dev/null; then
+    eval "$(git wt --init zsh)"
+fi
+
 # FZF (fuzzy finder)
 [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
 
