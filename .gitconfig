@@ -133,3 +133,5 @@ ai-commit = !git diff --cached | llm -m lmstudio \"Output ONLY a commitlint comm
      cmd = meld --auto-merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 [http]
 	postBuffer = 2097152000
+[wt]
+	basedir = ../{gitroot}-wt
