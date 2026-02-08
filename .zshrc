@@ -160,3 +160,6 @@ export PATH="$PATH:/Users/krishna/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export PATH=$PATH:$HOME/.maestro/bin
+
+# iTerm2 shell integration
+source ~/.iterm2_shell_integration.zsh
