@@ -333,11 +333,11 @@ alias gwX='git rm -r --force'
 alias ww='git wt'                          # List or switch worktrees
 function wwd() {                              # Delete worktree safely (fzf)
   local selected=$(git worktree list --porcelain | grep "^worktree" | cut -d" " -f2- | fzf)
-  [[ -n "$selected" ]] && git wt -d "$selected"
+  [[ -n "$selected" ]] && git worktree remove "$selected"
 }
 function wwD() {                              # Force delete worktree (fzf)
   local selected=$(git worktree list --porcelain | grep "^worktree" | cut -d" " -f2- | fzf)
-  [[ -n "$selected" ]] && git wt -D "$selected"
+  [[ -n "$selected" ]] && git worktree remove --force "$selected"
 }
 
 # Quick branch prefixes (works from anywhere, creates in parent dir)
