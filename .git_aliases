@@ -17,6 +17,7 @@ alias gbD='git branch --delete --force'
 alias gbl='git blame'
 alias gbm='git branch --move'
 alias gbr='git branch --remote'
+alias gbfz='git checkout $(git branch --all | fzf --height 40% --reverse)'
 
 # Commit
 alias gc='git commit --verbose'
