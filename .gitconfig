@@ -111,7 +111,7 @@ ai-commit = !git diff --cached | llm -m lmstudio \"Output ONLY a commitlint comm
 	insteadOf = "gist:"
 
 [push]
-	default = matching
+	default = current
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
 [filter "lfs"]
