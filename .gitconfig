@@ -46,8 +46,8 @@ lm = log --grep=Merge
 showtool = "!f() { git difftool $1^ $1; }; f"
 added = difftool --cached
 
-# generate commit from lmstudio model
-ai-commit = !git diff --cached | llm -m lmstudio \"Output ONLY a commitlint commit message for this diff. Format: type(scope): subject. No formatting, no explanation, just the raw message text.\" | git commit -F -
+# generate commit message from ollama
+ai-commit = "!f() { msg=$(git diff --cached | ollama run qwen2.5-coder:32b 'You are a commit message generator. Output ONLY the commit message, nothing else. No explanation, no markdown, no quotes. Format: type(scope): subject' | head -1); git commit -m \"$msg\"; }; f"
 
 [apply]
 	# Detect whitespace errors when applying a patch
