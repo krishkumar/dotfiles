@@ -29,3 +29,6 @@ export PATH="$HOME/.opencode/bin:$PATH"
 
 # Claude, kiro cli
 export PATH="$HOME/.local/bin:$PATH"
+
+# COmpanion
+export PATH="/Users/krishna/.bun/bin:$PATH"
