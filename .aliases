@@ -129,6 +129,7 @@ alias gurl='curl --compressed'
 
 # Clipboard operations
 alias c="tr -d '\n' | pbcopy"
+alias p='pwd | pbcopy'
 
 # Text encoding
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
