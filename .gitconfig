@@ -138,3 +138,5 @@ ai-commit = "!f() { msg=$(git diff --cached | ollama run qwen3-coder-30b-16k:lat
 [user]
   name = "Krishna Kumar"
   email = krish.kumar@gmail.com
+[url "git@git.magicive.com:"]
+	insteadOf = https://git.magicive.com/
