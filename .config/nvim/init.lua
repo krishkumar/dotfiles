@@ -1,11 +1,9 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
--- Set node path explicitly for GUI apps
-if vim.fn.has("gui_running") == 1 or vim.g.neovide then
-  vim.g.node_host_prog = "/Users/krishna/.nvm/versions/node/v24.9.0/bin/node"
-  vim.cmd('let $PATH = "/Users/krishna/.nvm/versions/node/v24.9.0/bin:" .. $PATH')
-end
+-- Per-machine overrides (node_host_prog, PATH shims, etc.) live on the
+-- local-<host> branch in lua/config/local.lua. pcall means absence is fine.
+pcall(require, "config.local")
 
 -- Neovide-specific settings
 if vim.g.neovide then

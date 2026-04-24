@@ -70,8 +70,12 @@ export BAT_THEME="TwoDark"
 # Package Manager Configuration
 # -----------------------------------------------------------------------------
 
-# Homebrew
-export HOMEBREW_PREFIX="/opt/homebrew"
+# Homebrew — pick the prefix that exists on this machine
+if [ -x /opt/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX="/opt/homebrew"        # Apple Silicon
+elif [ -x /usr/local/bin/brew ]; then
+  export HOMEBREW_PREFIX="/usr/local"            # Intel macOS / Linux
+fi
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
