@@ -1,0 +1,73 @@
+/* ===========================================================================
+   Syntax highlighting for markdown-preview.nvim (highlight.js classes)
+   Light theme tuned to the Modern/Refined palette, with a dark fallback.
+   =========================================================================== */
+
+.markdown-body .hljs {
+  display: block;
+  overflow-x: auto;
+  color: #24292f;
+  background: transparent;
+}
+
+.markdown-body .hljs-comment,
+.markdown-body .hljs-quote {
+  color: #5b6470;        /* darker gray — readable comments */
+  font-style: italic;
+}
+
+.markdown-body .hljs-keyword,
+.markdown-body .hljs-selector-tag,
+.markdown-body .hljs-literal,
+.markdown-body .hljs-doctag,
+.markdown-body .hljs-name {
+  color: #6d28d9;        /* deep violet — keywords */
+  font-weight: 600;
+}
+
+.markdown-body .hljs-string,
+.markdown-body .hljs-regexp,
+.markdown-body .hljs-addition,
+.markdown-body .hljs-meta-string {
+  color: #047048;        /* green — strings */
+}
+
+.markdown-body .hljs-number,
+.markdown-body .hljs-symbol,
+.markdown-body .hljs-bullet,
+.markdown-body .hljs-link {
+  color: #c2410c;        /* amber/orange — numbers */
+}
+
+.markdown-body .hljs-title,
+.markdown-body .hljs-section,
+.markdown-body .hljs-built_in,
+.markdown-body .hljs-title.function_,
+.markdown-body .hljs-function .hljs-title {
+  color: #2563eb;        /* blue — functions/titles */
+  font-weight: 600;
+}
+
+.markdown-body .hljs-attr,
+.markdown-body .hljs-attribute,
+.markdown-body .hljs-variable,
+.markdown-body .hljs-template-variable,
+.markdown-body .hljs-class .hljs-title,
+.markdown-body .hljs-type {
+  color: #b45309;
+}
+
+.markdown-body .hljs-tag,
+.markdown-body .hljs-selector-id,
+.markdown-body .hljs-selector-class,
+.markdown-body .hljs-selector-attr,
+.markdown-body .hljs-selector-pseudo {
+  color: #5b5bd6;        /* indigo — tags/selectors */
+}
+
+.markdown-body .hljs-meta { color: #6b7280; }
+.markdown-body .hljs-deletion { color: #b91c1c; background: #fdeaea; }
+.markdown-body .hljs-addition { background: #e8f7ee; }
+
+.markdown-body .hljs-emphasis { font-style: italic; }
+.markdown-body .hljs-strong { font-weight: 700; }
