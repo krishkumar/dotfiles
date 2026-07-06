@@ -2,8 +2,8 @@
    Modern / Refined — Light markdown theme for markdown-preview.nvim
    Container class injected by the plugin is `.markdown-body`.
    Self-hosted system fonts; falls back gracefully if Inter isn't installed.
-   Includes a courteous prefers-color-scheme: dark fallback so late-night
-   previews don't blind you — the default look is light.
+   Deliberately a firm light theme: no prefers-color-scheme: dark override, so
+   it stays light and high-contrast even when macOS is in dark mode.
    =========================================================================== */
 
 /* Webfonts — the preview renders in a real browser, so pull Inter + JetBrains
@@ -39,6 +39,22 @@
   --shadow-md: 0 4px 16px rgba(16, 24, 40, 0.06);
   --radius: 10px;
 }
+
+/* ---- force light -----------------------------------------------------------
+   The plugin's page.css swaps to a dark frame whenever main[data-theme="dark"]
+   is set (from macOS appearance). Neutralize its dark custom-properties and pin
+   the frame light so this theme stays light no matter the system setting. */
+:root,
+[data-theme="dark"] {
+  --foreground-color: #14181d;
+  --background-color: #f6f8fa;
+  --border-color: #cfd6de;
+  --secondary-background-color: #ffffff;
+}
+/* transparent so the themed body gradient below shows through (the plugin's
+   opaque main was hiding it); still fully light either way */
+main,
+main[data-theme="dark"] { background-color: transparent !important; }
 
 /* ---- page shell ---------------------------------------------------------- */
 
@@ -288,6 +304,123 @@ body {
 .markdown-body pre::-webkit-scrollbar { height: 8px; }
 .markdown-body pre::-webkit-scrollbar-thumb {
   background: #d6d6d2; border-radius: 8px;
+}
+
+/* ---- per-heading "copy section" button ----------------------------------- */
+/* Injected by mkdp-copy.js (see lua/plugins/markdown.lua). Lives in the left
+   gutter so it never disturbs the h1 underline bar or h2 border. */
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 { position: relative; }
+
+.markdown-body .mkdp-h-copy {
+  position: absolute;
+  left: -1.9em;
+  top: 0.12em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55em;
+  height: 1.55em;
+  padding: 0;
+  border: 1px solid var(--c-border);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--c-fg-muted);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(1px);
+  transition: opacity 0.12s ease, color 0.12s ease, border-color 0.12s ease,
+    background 0.12s ease;
+  box-shadow: var(--shadow-sm);
+  -webkit-user-select: none;
+  user-select: none;
+}
+.markdown-body h1:hover .mkdp-h-copy,
+.markdown-body h2:hover .mkdp-h-copy,
+.markdown-body h3:hover .mkdp-h-copy,
+.markdown-body h4:hover .mkdp-h-copy,
+.markdown-body h5:hover .mkdp-h-copy,
+.markdown-body h6:hover .mkdp-h-copy,
+.markdown-body .mkdp-h-copy:focus-visible { opacity: 1; }
+
+.markdown-body .mkdp-h-copy:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+  background: var(--c-accent-soft);
+}
+.markdown-body .mkdp-h-copy.copied {
+  opacity: 1;
+  color: #1a7f37;              /* green — success */
+  border-color: #1a7f37;
+  background: #e6f6ea;
+}
+.markdown-body .mkdp-h-copy.failed {
+  opacity: 1;
+  color: #b3216a;
+  border-color: #b3216a;
+  background: #fbe7f0;
+}
+.markdown-body .mkdp-h-copy svg { display: block; }
+
+/* ---- code-block "copy code" button --------------------------------------- */
+/* Sits in the top-right of a fenced block, clear of the traffic-light dots. */
+
+.markdown-body pre .mkdp-code-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7em;
+  height: 1.7em;
+  padding: 0;
+  border: 1px solid var(--c-border);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--c-fg-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s ease, color 0.12s ease, border-color 0.12s ease,
+    background 0.12s ease;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.markdown-body pre:hover .mkdp-code-copy,
+.markdown-body pre .mkdp-code-copy:focus-visible { opacity: 1; }
+
+.markdown-body pre .mkdp-code-copy:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+  background: var(--c-accent-soft);
+}
+.markdown-body pre .mkdp-code-copy.copied {
+  opacity: 1;
+  color: #1a7f37;
+  border-color: #1a7f37;
+  background: #e6f6ea;
+}
+.markdown-body pre .mkdp-code-copy.failed {
+  opacity: 1;
+  color: #b3216a;
+  border-color: #b3216a;
+  background: #fbe7f0;
+}
+.markdown-body pre .mkdp-code-copy svg { display: block; }
+
+/* On small viewports the gutter disappears — tuck the button inline instead. */
+@media (max-width: 720px) {
+  .markdown-body .mkdp-h-copy {
+    position: static;
+    margin-right: 0.4em;
+    vertical-align: middle;
+    opacity: 1;
+  }
 }
 
 /* This is a firm light theme — no prefers-color-scheme dark override, so it
