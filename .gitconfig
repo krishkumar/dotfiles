@@ -49,16 +49,10 @@ added = difftool --cached
 # generate commit message from ollama
 ai-commit = "!f() { msg=$(git diff --cached | ollama run qwen3-coder-30b-16k:latest 'You are a commit message generator. Output ONLY the commit message, nothing else. No explanation, no markdown, no quotes. Format: type(scope): subject' | head -1); git commit -m \"$msg\"; }; f"
 
-[apply]
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
-
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitexcludes
 	attributesfile = ~/.gitattributes
-	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
-	whitespace = space-before-tab,indent-with-non-tab,trailing-space
 	quotepath = false
 
 [color]

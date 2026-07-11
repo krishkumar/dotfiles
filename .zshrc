@@ -154,3 +154,6 @@ ulimit -n 4096
 
 # macOS fork safety for Objective-C runtime
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Hermes: update via fork-aware wrapper (merges upstream, keeps our menu commit)
+alias hermes-update="$HOME/.hermes/bin/hermes-update"
