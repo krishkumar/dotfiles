@@ -163,3 +163,6 @@ export PATH=$PATH:$HOME/.maestro/bin
 
 # iTerm2 shell integration
 source ~/.iterm2_shell_integration.zsh
+
+# Hermes: update via fork-aware wrapper (merges upstream, keeps our menu commit)
+alias hermes-update="$HOME/.hermes/bin/hermes-update"
